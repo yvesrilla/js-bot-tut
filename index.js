@@ -1,11 +1,10 @@
-const {token} = require('./config.json');
 
-const { Client } = require('discord.js');
+const mySecret = process.env['token']
 
-const client = new Client();
+const discord = require('discord.js')
 
-client.on('ready', () => {
-  console.log("online!")
-});
+const client = new discord.Client()
 
-client.login(token)
+client.login(mySecret).then(() => {
+    console.log(`online`)
+})
